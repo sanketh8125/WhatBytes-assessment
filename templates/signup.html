@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="/static/signup.css">
+</head>
+
+<body>
+    <form action="" method="post" onsubmit="return validatePassword()">
+        <h2>Signup</h2>
+        {% if messages %}
+        <div>
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% csrf_token %}
+        <p>Username: <input type="text" name="username" placeholder="Enter Username" required></p>
+        <p>Email: <input type="email" name="email" placeholder="Enter Email" required></p>
+        <p>Password: <input type="password" name="password" id="password" placeholder="Enter Password" required></p>
+        <p>Confirm Password: <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" required></p>
+        <p><input type="submit" value="Signup"></p>
+        <p>Existing User? <a href="/home/login">Login</a></p>
+    </form>
+    <script>
+        function validatePassword() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
+
+            if (!passwordRegex.test(password)) {
+                alert("Password must be at least 8 characters long, include one uppercase letter, one lowercase letter, one number, and one special character.");
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match. Please re-enter.");
+                return false;
+            }
+
+            return true; 
+        }
+    </script>
+</body>
+
+</html>

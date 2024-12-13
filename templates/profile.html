@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/profile.css">
+</head>
+
+<body>
+    <div>
+        <div>
+            <div style="display: flex;flex-direction: row;">
+                <a href="/home/dashboard" style="text-decoration: none;padding-left: 5px;">Back to Dashboard</a>
+                <form action="{% url 'logout' %}" method="post" style="text-align: right; width:89%; margin-top: 10px;">
+                    {% csrf_token %}
+                    <button type="submit" class="logout-btn">Logout</button>
+                </form>
+            </div>
+            <div>
+                <p><b>Username:</b> {{ request.user.username.capitalize }}</p>
+            </div>
+            <div>
+                <p><b>Email:</b> {{ request.user.email }}</p>
+            </div>
+            <div>
+                <p><b>Date Joined:</b> {{ user.date_joined|date:"F j, Y" }}</p>
+            </div>
+            <div>
+                <p><b>Last Login:</b> {{ user.last_login|date:"F j, Y, h:i A" }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

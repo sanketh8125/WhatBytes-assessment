@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/dashboard.css">
+</head>
+
+<body>
+    <div style="width:100%; padding-left: 15px;">
+        <div style="display: flex; flex-direction: row;">
+            <h2 style="width: 50%;">Hi, {{ request.user.username.capitalize }}!</h2>
+            <form action="{% url 'logout' %}" method="post" style="width: 50%; text-align: right; margin-right: 15px;">
+                {% csrf_token %}
+                <button type="submit" class="logout-btn">Logout</button>
+            </form>
+        </div>
+        <a href="/home/profile" style="text-decoration: none;">Profile</a>
+        <a href="/home/change-password" style="text-decoration: none;">Change Password</a>
+    </div>
+</body>
+
+</html>
