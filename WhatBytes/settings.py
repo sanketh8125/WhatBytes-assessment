@@ -88,8 +88,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.mailersend.net'
 EMAIL_PORT = 587  # Use 465 if SSL is preferred
 EMAIL_USE_TLS = True  # Set to False if using SSL
-EMAIL_HOST_USER = 'MS_9sudHS@trial-z86org803j04ew13.mlsender.net'
-EMAIL_HOST_PASSWORD = 'k6mlCc7bARsp70KN'
+EMAIL_HOST_USER = 'MS_RRP4ZN@trial-7dnvo4dx133g5r86.mlsender.net'
+EMAIL_HOST_PASSWORD = 'MpRg9P7iQSqHJflb'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
